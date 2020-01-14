@@ -12,8 +12,63 @@ html {font-size: 62.5%;} /* Sets the default size so you can use ems and rems */
   box-sizing: border-box;
 }
 
+p {
+  font-size: 1.75em;
+  text-align: center;
+}
 
+.question {
+  padding: 3.5em .5em 3.5em .5em;
+}
 
 .slider{
-background-color: orange;
+width: 100%;
+}
+
+.rangeLabels {
+  font-size: 1em;
+  color: gray;
+}
+
+.agree {
+  position: absolute;
+  right: 0;
+}
+
+.inlineQuestion {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 50em;
+  margin-bottom: 8em;
+}
+
+#userInfoBox{
+  width: 120%;
+  margin-left: -10%;
+  background-color: orange;
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    7px 7px 0px 0px rgba(50, 50, 50, 1);
+  box-shadow:         7px 7px 0px 0px rgba(50, 50, 50, 1);
+}
+
+.textBox{
+  width: 100%;
+text-align: center;
+}
+
+.primaryCTA {
+  font-size: 2em;
+  background-color: #F152AA;
+  color: white;
+  text-align: center;
+  padding: .75em;
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    7px 7px 0px 0px rgba(50, 50, 50, 1);
+  box-shadow:         7px 7px 0px 0px rgba(50, 50, 50, 1);
+}
+
+.primaryCTA:hover {
+  -webkit-box-shadow: 11px 11px 0px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    11px 11px 0px 0px rgba(50, 50, 50, 1);
+  box-shadow:         11px 11px 0px 0px rgba(50, 50, 50, 1);
 }
