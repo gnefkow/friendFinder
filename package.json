@@ -1,0 +1,23 @@
+{
+  "name": "16_friendfinder",
+  "version": "1.0.0",
+  "description": "App for finding friends like you!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnefkow/friendFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gnefkow/friendFinder/issues"
+  },
+  "homepage": "https://github.com/gnefkow/friendFinder#readme",
+  "dependencies": {
+    "nodemon": "^2.0.2",
+    "rangeslider-pure": "^0.4.11"
+  }
+}

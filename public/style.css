@@ -1,0 +1,19 @@
+
+/* =========== CLEAR ALL PRESET STUFF =========== */
+html {font-size: 62.5%;} /* Sets the default size so you can use ems and rems */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-size: 62.5%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+
+
+.slider{
+background-color: orange;
+}
