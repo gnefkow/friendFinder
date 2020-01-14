@@ -18,6 +18,7 @@ var type = "Five";
 // Submit ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
 submitButton.onclick = submit;
 function submit(){
+  getUserID();
   getUserName();
   getUserPicture()
   addUserScore();
@@ -28,6 +29,11 @@ function submit(){
 }
 
 // Sub-Functions ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+    function getUserID() {
+      userID = Math.floor(Math.random()*1000000000)
+      console.log(`The user's userID is: ${userID}`);
+    }
 
     function getUserName(){
       userName = nameBox.value;
