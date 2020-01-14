@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/gnefkow/friendFinder#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "nodemon": "^2.0.2",
     "rangeslider-pure": "^0.4.11"
   }
