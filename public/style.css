@@ -11,12 +11,21 @@ html {font-size: 62.5%;} /* Sets the default size so you can use ems and rems */
   vertical-align: baseline;
   box-sizing: border-box;
 }
+/* Font weights: 100,300,500,900 */
+body{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 300;
+}
 
 p {
   font-size: 1.75em;
   text-align: center;
 }
 
+h1 {
+  font-weight: 900;
+  letter-spacing: .15em;
+}
 .question {
   padding: 3.5em .5em 3.5em .5em;
 }
@@ -42,18 +51,45 @@ width: 100%;
   margin-bottom: 8em;
 }
 
+/* ----- USER BOX ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----  */
+
 #userInfoBox{
   width: 120%;
   margin-left: -10%;
-  background-color: orange;
+  background-color: #6EE0FF;
+  padding: 1em;
   -webkit-box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 1);
   -moz-box-shadow:    7px 7px 0px 0px rgba(50, 50, 50, 1);
   box-shadow:         7px 7px 0px 0px rgba(50, 50, 50, 1);
 }
 
+#userInfoBox h1 {
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
+#userInfoBox input[type=text]{
+  background-color: #6EE0FF;
+  border: none;
+  padding: .5em;
+  color: white;
+  font-size: 2.5em;
+}
+
+#userInfoBox input[type=text]:focus{
+  background-color: #B5EFFF;
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    7px 7px 0px 0px rgba(50, 50, 50, 1);
+  box-shadow:         7px 7px 0px 0px rgba(50, 50, 50, 1);
+}
+
+
+  
+
+
 .textBox{
   width: 100%;
-text-align: center;
+  text-align: center;
 }
 
 .primaryCTA {
@@ -62,12 +98,39 @@ text-align: center;
   color: white;
   text-align: center;
   padding: .75em;
+  font-weight: 900;
+  letter-spacing: .25em;
   -webkit-box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 1);
   -moz-box-shadow:    7px 7px 0px 0px rgba(50, 50, 50, 1);
   box-shadow:         7px 7px 0px 0px rgba(50, 50, 50, 1);
 }
 
 .primaryCTA:hover {
+  -webkit-box-shadow: 11px 11px 0px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    11px 11px 0px 0px rgba(50, 50, 50, 1);
+  box-shadow:         11px 11px 0px 0px rgba(50, 50, 50, 1);
+}
+
+
+/* ========== FOOTER ========== ========== ========== ========== ========== ========== ========== ==========   */
+footer {
+  padding-top: 6em;
+  background-color: #222;
+  color: #777;
+  font-size: .75em;
+  text-align: left;
+}
+
+footer p {
+  text-align: left;
+}
+
+.footerNavTab-btn {
+  color: #777;
+  font-size: 1.5em;
+}
+
+.footerNavTab-btn:hover {
   -webkit-box-shadow: 11px 11px 0px 0px rgba(50, 50, 50, 1);
   -moz-box-shadow:    11px 11px 0px 0px rgba(50, 50, 50, 1);
   box-shadow:         11px 11px 0px 0px rgba(50, 50, 50, 1);

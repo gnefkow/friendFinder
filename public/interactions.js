@@ -15,7 +15,7 @@ var userScores = [];
 var type = "Five";
 
 
-// Submit ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+// Submit. ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
 submitButton.onclick = submit;
 function submit(){
   getUserID();
@@ -25,7 +25,11 @@ function submit(){
   createUserScoreArr();
   addUserScore()
   interpretUserScore();
+  
+  // console.log(`var newFriend is ${newFriend}`);
+  postToAPI();
   alert(`Sorry, ${userName}, we don't have a backend yet, so we can't find you a buddy :(`)
+
 }
 
 // Sub-Functions ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
@@ -82,6 +86,23 @@ function submit(){
     }
 
 
+
+
+function Friend(userID, userName, userPic, userScores){
+    this.userID = userID;
+    this.userName = userName;
+    this.userPic = userPic;
+    this.userScores = userScores;
+    };
+
+    function postToAPI(){
+    var newFriend = new Friend(userID, userName, userPic, userScores)
+    console.log(newFriend);
+    $.post("/api/friendsList", newFriend)
+    .then(function(data) {
+      alert("Adding character...");
+    });
+  }
 
 
 

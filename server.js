@@ -21,15 +21,15 @@ app.use(express.json());
     res.sendFile(path.join(__dirname, "./public/home.html"));
   });
 
-  app.get("/survey-5", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/survey-5.html"));
+  app.get("/survey", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/survey.html"));
   });
 
   app.use(express.static(__dirname + '/public/'));
 
 
 // ----- API ROUTES ----- //
-var Friends = [
+var friendList = [
   {
     userID: 1234567890,
     userName: "Seed Friend",
@@ -38,27 +38,20 @@ var Friends = [
   }
 ];
 
-// Displays all characters
-app.get("/api/friends", function(req, res) {
-  return res.json(friends);
+// Displays the friendList:
+app.get("/api/friendsList", function(req, res) {
+  return res.json(friendList);
 });
+
 
 
 // Posts new friends to the API:
-app.post("/api/characters", function(req, res) {
-  var newFriend = req.body;
 
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newFriend.routeName = newCharacter.userID;
-
-  console.log(newCharacter);
-
-  characters.push(newCharacter);
-
-  res.json(newCharacter);
-});
-
+  app.post("/api/friendsList", function(req, res) {
+    var newFriend = req.body;
+    friendList.push(newFriend);
+    res.json(newFriend);
+  });
 
 
 
