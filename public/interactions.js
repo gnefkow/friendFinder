@@ -1,6 +1,9 @@
 console.log("Interactions.js is connected!")
 
-// DOM ELEMENTS ==========
+
+// DOM ELEMENTS 
+//====================================================================================================
+
 var slider = document.getElementsByClassName("slider");
 var submitButton = document.getElementById("submitButton");
 var nameBox = document.getElementById("nameBox");
@@ -15,7 +18,17 @@ var userScores = [];
 var type = "Five";
 
 
-// Submit. ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+// Get API Data (on page load):
+var friends;
+  $.get("/api/friends", function(data){
+    console.log(data);
+    friends = data;
+  });
+
+
+// Submit Button 
+//====================================================================================================
+
 submitButton.onclick = submit;
 function submit(){
   getUserID();
@@ -25,27 +38,29 @@ function submit(){
   createUserScoreArr();
   addUserScore()
   interpretUserScore();
-  
-  // console.log(`var newFriend is ${newFriend}`);
+  createNewFriend();
+  findAFriend()
   postToAPI();
   alert(`Sorry, ${userName}, we don't have a backend yet, so we can't find you a buddy :(`)
+  // location.reload();
 }
 
-// Sub-Functions ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+
+// SUBMIT: Pull the user's inputs
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     function getUserID() {
       userID = Math.floor(Math.random()*1000000000)
-      console.log(`The user's userID is: ${userID}`);
     }
 
     function getUserName(){
       userName = nameBox.value;
-      console.log(`The user's name is: ${userName}`);
     }
 
     function getUserPicture(){
       userPic = picBox.value;
-      console.log(`The user's picture is at: ${userPic}`);
     }
 
     function createUserScoreArr(){
@@ -54,12 +69,10 @@ function submit(){
         var score = parseInt($(this).val())
         userScores.push(score);
       });
-      console.log(userScores);
     }
 
     function addUserScore(){
       score = userScores.reduce((a, b) => a + b, 0)
-      console.log(`The ${userName}'s score is: ${score}`);
     }
 
     function interpretUserScore(){
@@ -87,6 +100,14 @@ function submit(){
 
 
 
+
+
+// SUBMIT: Creates the JSON Object
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+var newFriend;
+var newFriendArr = newFriend.userScores;
+var newFriendName = newFriend.userName;
+
 function Friend(userID, userName, userPic, userScores){
     this.userID = userID;
     this.userName = userName;
@@ -94,14 +115,53 @@ function Friend(userID, userName, userPic, userScores){
     this.userScores = userScores;
     };
 
-function postToAPI(){
-    var newFriend = new Friend(userID, userName, userPic, userScores)
-    console.log(newFriend);
-    $.post("/api/friends", newFriend)
-    .then(function(data) {
-    });
+function createNewFriend(){
+    newFriend = new Friend(userID, userName, userPic, userScores)
+    console.log(`newFriend is ${newFriend.userID}`);
+    newFriendArr = newFriend.userScores;
+    newFriendName = newFriend.userName;
   }
 
+  function postToAPI(){
+    $.post("/api/friends", newFriend)
+    .then(function(data) {
+      return data;
+    });
+  }
+  
 
+// SUBMIT: Find a Friend
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+  function findAFriend(){
+    var diff = 60;
+    var bff = "You have no friends";
+    
+    for (var i = 0; i < friends.length; i++){
+      // Variables: Outer Loop:
+      var oldFriendName = friends[i].userName;
+      var oldFriendVar = friends[i].userScores;
+      var newDiff = [];
+  
+      // Nested Loop:
+      for (var j = 0; j < oldFriendVar.length; j++){
+       newDiff.push(Math.abs(oldFriendVar[j] - newFriendArr[j]))
+      }
+      
+      // Find the difference for this friend:
+      newDiff = newDiff.reduce((a, b) => a + b, 0)
+      console.log(`${newDiff} is the difference between ${newFriendName} and ${oldFriendName}`);
+      
+      // Update BFF if needed:
+      if (newDiff < diff){
+        diff = newDiff
+        bff = oldFriendName;
+      }
+    }
+  
+    // Return the new BFF:
+    console.log(`${newFriendName}'s new bff is ${bff}`);
+    alert(`${newFriendName}'s new bff is ${bff}`);
+  }
 
 

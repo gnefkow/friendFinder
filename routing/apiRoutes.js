@@ -15,4 +15,19 @@ module.exports = function(app){
     friends.push(newFriend);
     res.json(newFriend);
   });
+
+
+
+// app.get("/api/friends/:friends", function(req, res) {
+//   var chosen = req.params.friends;
+//   console.log(chosen);
+//   for (var i = 0; i < friends.length; i++) {
+//     if (chosen === friends[i].userName) {
+//       return res.json(friends[i]);
+//     }
+//   }
+//   return res.json(false);
+// });
+
+
 }
