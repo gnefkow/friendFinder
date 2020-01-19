@@ -9,6 +9,7 @@ var submitButton = document.getElementById("submitButton");
 var nameBox = document.getElementById("nameBox");
 var picBox = document.getElementById("picBox");
 // -- MODAL -- //
+var surveyResultModal = document.getElementById("surveyResultModal");
 var modalBestFriendTitle = document.getElementById("modalBestFriendTitle");
 var modalBestFriendMessage = document.getElementById("modalBestFriendMessage");
 var interpretScoreMessage;
@@ -53,7 +54,7 @@ function submit(){
   findAFriend()
   postToAPI();
   populateModal();
-  $('#myModal').modal();
+  $(surveyResultModal).modal();
   // location.reload();
 }
 

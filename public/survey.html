@@ -24,8 +24,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Is you a V?</h1>
-        <p>Eos expedita quos expedita. Quis dolor voluptatem minima quae iure odio nisi aut. Expedita dolores deserunt est et et. Quasi dolor aperiam dolorum.</p>
+        <h1 class="surveyTitle">V</h1>
+        <h2 class="surveyIntro">Take this quiz to find someone who probably agrees with you.</h2>
       </div>
     </div>
   
@@ -37,11 +37,11 @@
               <div id="userInfoBox">
                 <div class="question">
                     <h1>What is your name?.</h1>
-                    <input id="nameBox" class="textBox" type="text">
+                    <input id="nameBox" class="textBox" type="text" placeholder="...add your name">
                 </div>
                 <div class="question">
                     <h1>Add a link to a picture</h1>
-                    <input id="picBox" class="textBox" type="text">
+                    <input id="picBox" class="textBox" type="text" placeholder="...add your photo">
                 </div>
               </div>
             <div class="question">
@@ -208,7 +208,7 @@
 </footer>
 
 <!--MODAL-->
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
+<div id="surveyResultModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -216,11 +216,14 @@
           <p id="modalBestFriendMessage"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Cool!</button>
+          <button type="button" class="btn btn-primary modalButtonCTA">Cool!</button>
         </div>
       </div>
     </div>
   </div>
+
+  <div id="floatpen" ></div>
+
 
 
 
@@ -228,6 +231,8 @@
 <!-- Local Javascript file link-->  
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script src="./interactions.js"></script>
+<script src="./decorations.js"></script>
+
 </body>
 
 
